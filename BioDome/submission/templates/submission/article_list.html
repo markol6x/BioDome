@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+<br>
+<br>
+<div class="centerstage">
+  <table class="table table-hover" style="width:100%">
+  {% for article in article_list %}
+      {% if article.is_published %}
+      <tr>
+      <td>
+        <div class="container">
+      <h3><b><a href="{% url 'submission:article_detail' slug=article.slug %}">{{ article.title }}</a></b></h3>
+      <p>Published on: {{article.created_date|date:"M d, Y" }}</p>
+      <strong><p>{{article.authors}}</p></strong>
+      <p>{{article.abstract}}</p>
+        <div class="container">
+      </td>
+    </tr>
+    {% endif %}
+  {% endfor %}
+  </table>
+</div>
+{% else %}
+  <center><h1 class="indexscreen">Log in to do stuff</h1></center>
+  <center><a href="{% url 'login' %}" class="btn btn-default">Log in</a></center>
+
+{% endif %}
+
+{% endblock %}
+
+{# <th>{{article.authors}}</th>
+<th>{{article.article_type}}</th>
+<th>{{article.author}}</th>
+<th>{{article.abstract}}</th>
+<th>{{article.created_date}}</th>#}

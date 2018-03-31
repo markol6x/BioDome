@@ -1,0 +1,93 @@
+body {
+    font-family: 'Mukta Malar', sans-serif;
+    background-image: url("/static/images/bgimage.png");
+    background-repeat: repeat-x;
+}
+
+footer {
+  background-color: #b0e26f;
+  border-radius: 20px;
+}
+
+img {
+  max-width:200px;
+  margin: 10px;
+ }
+
+.footer_image {
+   max-width:200px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   width: 50%;
+ }
+
+.inner {
+  width:75%;
+  max-width:95vw;
+  margin:0 auto;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.logo_image{
+  max-width: 200px
+}
+
+ .navbar  {
+   background: #f3ffe2;
+   border-radius: 20px;
+   opacity: 0.8;
+   max-height: 80px;
+   z-index:50;
+ }
+
+.jumbotron {
+  background: #f3ffe2;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+a {
+  color: #434444;
+}
+
+a:hover {
+    color: #434444;
+}
+
+.nav-item a:hover {
+    background-color: #e0e5d3;
+    border-radius: 5px;
+}
+
+#searchform input {
+  width:150px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.usericon {
+  max-width: 10px;
+  margin: 0px;
+}
+
+.multicolumn {
+  -moz-column-count: 2;
+  -moz-column-gap: 50px;
+  -webkit-column-count: 2;
+  -webkit-column-gap : 50px;
+  -moz-column-rule-color:  #ccc;
+  -moz-column-rule-style:  double;
+  -moz-column-rule-width:  3px;
+  -webkit-column-rule-color:  #ccc;
+  -webkit-column-rule-style: double ;
+  -webkit-column-rule-width:  3px;
+  padding: 2rem 0;
+  text-align: justify;
+  text-justify: inter-word;
+}

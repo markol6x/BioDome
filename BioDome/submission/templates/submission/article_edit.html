@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Edit Strain</h1>
+
+  <h1 class='articletitle'>{{article.title}}</h1>
+  {% if article.created_date %}
+    <div class="date articledate">
+      {{article.created_date}}
+
+    </div>
+
+  {% else %}
+
+    <a class="btn btn-default" href="{% url 'submission:article_confirm_detail' slug=article.slug %}">ArticleDetail(laterProcess)</a>
+
+  {% endif %}
+
+  <p class=articlecontent>{{article.title|safe|linebreaksbr}}</p>
+
+  {% if user.is_authenticated %}
+    <a class='btn btn-primary' href="{% url 'article_edit' slug=article.slug %}"></a>
+
+
+  {% endif %}
+
+{% endblock %}

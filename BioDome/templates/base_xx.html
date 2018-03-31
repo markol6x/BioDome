@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>BioDome</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Mukta+Malar" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'css/master.css'%}">
+    <link rel="shortcut icon" href="{%  static 'images/favicon.png' %}">
+    {% block meta %}
+
+    {% endblock %}
+  </head>
+
+
+  <body>
+    <br>
+    <nav class="navbar navbar-expand-lg navbar-light bg-none inner">
+      <a class="navbar-brand" href="{% url 'home' %}"><img class="logo_image" src=/static/images/logo.png alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <strong><a class="nav-link" href="{% url 'submission:article_new' %}">Submission</a></strong>
+          </li>
+          <li class="nav-item">
+            <strong><a class="nav-link" href="{% url 'submission:article_list' %}">Browse Papers</a></strong>
+          </li>
+          <li class="nav-item">
+            <strong><a class="nav-link" href="{% url 'submission:myarticle_list' %}">My Papers</a></strong>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'accounts:update_profile' pk=user.pk %}">Edit Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'auth_logout' %}">Log Out</a>
+          </li>
+
+          {% else %}
+          <li class="nav-item">
+            <strong><a class="nav-link" href="{% url 'auth_login' %}">Log In</a></strong>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'registration_register' %}">Register</a></strong>
+          </li>
+          {% endif %}
+        </ul>
+        <form class="form-inline my-2 my-lg-0" id="searchform" action="{% url 'submission:article_search_list' %}" method="get" accept-charset="utf-8">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchbox" name="q">
+          {# <button class="btn btn-outline-success" type="submit">Search</button>#}
+        </form>
+      </div>
+    </nav>
+    <br>
+        <div class="container mycontent">
+          {% block content %}
+          {% endblock %}
+        </div>
+<canvas id="canvas"></canvas>
+  </body>
+
+<footer class="inner">
+  <img class="footer_image" src="/static/images/logo.png" alt="">
+
+
+
+</footer>
+
+</html>

@@ -1,0 +1,25 @@
+#content-one, #content-two, #content-three, #content-four{
+    overflow:hidden;
+    border: 1px dashed gray;
+    line-height: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    width:100%;
+    text-align: justify;
+
+}
+.content-one{
+    height:31ex;
+}
+
+.content-two{
+  height:31ex;
+}
+
+.content-three{
+  height:31ex;
+}
+
+.content-four{
+  height:31ex;
+}

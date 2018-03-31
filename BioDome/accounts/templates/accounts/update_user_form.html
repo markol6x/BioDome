@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% load bootstrap3 %}
+{% block content %}
+<div class="jumbotron">
+<div class="container">
+  <a href="#">Click here to change e-mail address</a>
+<form method="post" action="">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="Submit" />
+    <input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block content %}
+    <br><br>
+  <h3>Article Detail Page</h3>
+    <br>
+    <a class='btn btn-primary' href="{% url 'submission:article_edit' slug=article.slug %}">Edit</a>
+    <a class='btn btn-danger' href="{% url 'submission:article_remove' slug=article.slug %}">Delete</a>
+{# <div class="jumbotron" style="background-color:#e8ebef">#}
+    <br><br>
+
+  <table class="table">
+    <tbody>
+      <tr>
+        <td width='20%'><b>Manuscript Title:</b></td>
+        <td ><b>{{article.title}}</b></td>
+      </tr>
+      <tr>
+        <td width='20%'><b>Authors:</b></td>
+        <td ><b>{{article.authors}}</b></td>
+      </tr>
+      <tr>
+        <td width='20%'><b>Abstract:</b></td>
+        <td ><b>{{article.abstract}}</b></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <h4>Manuscript files:</h4><br>
+  {% if article.main_file %}
+  <a href="{{article.main_file.url}}"><h5>{{article.main_file|safe}}</h5></a>
+  {% endif %}
+  {% if article.supplementary_file %}<br>
+  <a href="{{article.supplementary_file.url}}"><h5>{{article.supplementary_file|safe}}</h5></a><br>
+  {% endif %}
+
+      <br>
+      <div class="multicolumn">
+        <h3>INTRODUCTION</h3>
+        {{article.introduction|safe}}<br>
+      </div>    </strong>
+      <div class="multicolumn">
+
+        <img src="{{article.figure_1.url}}" alt="">
+
+        <h3>RESULTS</h3>
+        {{article.results|safe}}<br>
+        </div>    </strong>
+      <div class="multicolumn">
+        <h3>DISCUSSION</h3>
+        {{article.discussion|safe}}<br>
+      </div>
+    </strong>
+      <div class="multicolumn">
+        <h3>METHODS</h3>
+        {{article.methods|safe}}<br>
+      </div>    </strong>
+      <div class="multicolumn">
+        <h3>REFERENCES</h3>
+        {{article.references|safe}}<br>
+      </div>    </strong>
+      <div class="multicolumn">
+        <h3>FIGURE LEGENDS</h3>
+        {{article.fig_legends|safe}}<br>
+      </div>    </strong>
+
+
+
+  <h4>Figures:</h4>
+
+  <table class="table">
+    <tbody>
+      <tr>
+                {% if article.figure_1 %}
+        <td><b>Figure 1:</b></td>
+        <td><img src="{{article.figure_1.url}}" alt="No figure!"></td>
+                {% endif %}
+                {% if article.figure_2 %}
+        <td><b>Figure 2:</b></td>
+        <td><img src="{{article.figure_2.url}}" alt="No figure!"></td>
+                {% endif %}
+      </tr>
+
+      <tr>
+                {% if article.figure_3 %}
+        <td><b>Figure 3:</b></td>
+        <td><img src="{{article.figure_3.url}}" alt="No figure!"></td>
+                {% endif %}
+                {% if article.figure_4 %}
+        <td><b>Figure 4:</b></td>
+        <td><img src="{{article.figure_4.url}}" alt="No figure!"></td>
+                {% endif %}
+      </tr>
+
+      <tr>
+                {% if article.figure_5 %}
+        <td><b>Figure 5:</b></td>
+        <td><img src="{{article.figure_5.url}}" alt="No figure!"></td>
+                {% endif %}
+                {% if article.figure_6 %}
+        <td><b>Figure 6:</b></td>
+        <td><img src="{{article.figure_6.url}}" alt="No figure!"></td>
+                {% endif %}
+      </tr>
+    </tbody>
+  </table>
+{% endblock %}

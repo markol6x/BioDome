@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <form method="post">
+    {% csrf_token %}
+    <h5>Are you sure you want to delete manuscript "{{ article.title }}"</h5><br>
+    <a class='btn btn-success' href="{% url 'submission:article_confirm_detail' slug=article.slug %}">Back</a>
+    <input class="btn btn-danger" type="submit" value="Delete!">
+
+
+  </form>
+{% endblock %}

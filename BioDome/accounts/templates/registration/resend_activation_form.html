@@ -1,0 +1,12 @@
+{% extends "registration/registration_base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Resend Activation Email" %}{% endblock %}
+{% load bootstrap3 %}
+{% block content %}
+<form method="post" action="">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="{% trans 'Submit' %}" />
+</form>
+{% endblock %}
